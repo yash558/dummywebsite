@@ -416,7 +416,7 @@ export function GlobeView() {
                     </h2>
                     <p className="text-center text-base md:text-lg font-normal text-neutral-200 max-w-7xl mt-2 mx-auto">
                         Our digital services transcend borders, empowering businesses worldwide.
-                        Whether you're seeking web design, app development, SEO, or digital marketing,
+                        Whether you&apos;re seeking web design, app development, SEO, or digital marketing,
                         our global team is dedicated to serving your needs. Let us propel your business
                         to new heights, no matter where you are on the map.
                     </p>
