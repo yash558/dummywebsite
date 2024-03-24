@@ -1,8 +1,9 @@
-"use client";
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { HoverBorderGradient } from "./hover-border-gradient";
+
 
 const transition = {
   type: "spring",
@@ -25,10 +26,10 @@ export const MenuItem = ({
   children?: React.ReactNode;
 }) => {
   return (
-    <div onMouseEnter={() => setActive(item)} className="relative ">
+    <div onMouseEnter={() => setActive(item)} className="relative">
       <motion.p
         transition={{ duration: 0.3 }}
-        className="cursor-pointer text-black hover:opacity-[0.9] dark:text-white"
+        className="cursor-pointer text-black hover:opacity-90 dark:text-white"
       >
         {item}
       </motion.p>
@@ -39,11 +40,11 @@ export const MenuItem = ({
           transition={transition}
         >
           {active === item && (
-            <div className="absolute top-[calc(100%_+_1.7rem)] left-1/2 transform -translate-x-1/2">
+            <div className="absolute top-full left-1/2 transform -translate-x-1/2">
               <motion.div
                 transition={transition}
                 layoutId="active" // layoutId ensures smooth animation
-                className="bg-white dark:bg-black backdrop-blur-sm rounded-2xl overflow-hidden border border-black/[0.2] dark:border-white/[0.2] shadow-xl"
+                className="bg-white dark:bg-black backdrop-blur-sm rounded-2xl overflow-hidden border border-black/20 dark:border-white/20 shadow-xl"
               >
                 <motion.div
                   layout // layout ensures smooth animation
@@ -70,9 +71,33 @@ export const Menu = ({
   return (
     <nav
       onMouseLeave={() => setActive(null)} // resets the state
-      className="relative rounded-full boder border-transparent dark:bg-black dark:border-white/[0.2] bg-white shadow-input flex justify-center space-x-4 px-8 py-6 "
+      className="relative rounded-full border border-transparent dark:bg-black dark:border-white/20 bg-white shadow-input flex justify-between space-x-4 px-8 py-6 "
     >
-      {children}
+      <div >
+        {/* Company Logo */}
+        <Image
+          src="/company-logo.png"
+          alt="Company Logo"
+          width={40}
+          height={40}
+          className="rounded-full"
+        />
+      </div>
+      <div className="flex items-center space-x-4">
+
+        {children}
+      </div>
+
+      <div className=" flex justify-center text-center">
+        <HoverBorderGradient
+          containerClassName="rounded-full"
+          as="button"
+          className="bg-black  text-white flex items-center space-x-2"
+        >
+
+          <span>Sign Up</span>
+        </HoverBorderGradient>
+      </div>
     </nav>
   );
 };
