@@ -68,10 +68,11 @@ const content = [
 
 export function Services() {
   return (
-    <div className="p-10">
-      <h1 className="text-white text-5xl text-center text-bold mb-4 ">
-        
-      </h1>
+    <div className="">
+     <h1 className="text-white text-4xl text-center font-bold mb-2">
+  Helping You Grow
+</h1>
+
       <StickyScroll content={content} />
     </div>
   );
